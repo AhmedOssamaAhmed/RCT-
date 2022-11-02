@@ -1,6 +1,8 @@
 <?php
 require_once('models/user.php');
 require_once('helpers/validate.php');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
 
 if(isset($_POST['submit']))
 {
@@ -39,5 +41,7 @@ if(isset($_POST['submit']))
     }else{
         echo "incorrect password";
     }
+}else{
+    echo "not sent in post body";
 }    
 ?>
