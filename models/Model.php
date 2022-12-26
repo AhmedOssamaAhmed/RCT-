@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__DIR__)."/Helpers/Connection.php");
+require_once(__DIR__."/../helpers/db.php");
 // a parent class for all models that handles pdo so that a new model can simply inherit from this class, set some attributes and get going
 class Model{
 	// filled from parent class and includes the table name of the model
@@ -8,7 +8,7 @@ class Model{
 	private $fields;
 	private $pdo;
 	public function __construct($name, $fields){
-		$this->pdo = Connection::getConnection();
+		$this->pdo = connect();
 		$this->name = $name;
 		$this->fields = $fields;
 	}
