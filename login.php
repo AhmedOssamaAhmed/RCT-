@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: *");
 
 if(isset($_POST['submit']))
 {
-	$args = array(
+    $args = array(
         "email",
         "password"
     );
@@ -25,15 +25,17 @@ if(isset($_POST['submit']))
         exit();
     }
 
-    $handle = User::getUsersByEmail($email);
+    $user = new User();
+    $getRow = $user->getBy("email", $email);
 
-    if($handle->rowCount() <= 0)
+    if(count($getRow) == 0)
     {
         echo "User not found";
         exit();
     }
 
-    $getRow = $handle->fetch(PDO::FETCH_ASSOC);
+    $getRow = $getRow[0];
+
     if($password == $getRow['password'])
     {
         echo "login successful";

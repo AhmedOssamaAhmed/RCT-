@@ -43,16 +43,13 @@ if(isset($_POST['register']))
         echo "invalid email";
         exit();
     }
-    $handle = User::getUsersByEmail($email);
+    $user = new User();
+    $handle = $user->getBy("email", $email);
 
-    if($handle->rowCount() > 0){
+    if(count($handle) > 0){
         echo "email already registered !";
         exit();
     }
-    $sql = "INSERT INTO user(first_name,last_name,email,password,phone,strava_link,date_of_birth,gender)
-    VALUES(:first_name,:last_name,:email,:password,:phone,:strava_link,:date_of_birth,:gender)";
-    $pdo = connect();
-    $handle = $pdo->prepare($sql);
     $params = ['email'=>$email,
                 'first_name'=>$first_name,
                 'last_name'=>$last_name,
@@ -62,7 +59,7 @@ if(isset($_POST['register']))
                 'date_of_birth'=>$date_of_birth,
                 'gender'=>$gender,
             ];
-    $handle->execute($params);
+    $user->insert($params);
     echo "new User created";
 
 
