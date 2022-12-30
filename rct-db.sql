@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2022 at 08:45 PM
+-- Generation Time: Dec 30, 2022 at 09:53 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -73,6 +73,25 @@ CREATE TABLE `event` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `leaders`
+--
+
+CREATE TABLE `leaders` (
+  `id` int(11) NOT NULL,
+  `leader_name` varchar(20) NOT NULL,
+  `photo` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `leaders`
+--
+
+INSERT INTO `leaders` (`id`, `leader_name`, `photo`) VALUES
+(1, 'mohamed el zoghaby', 'https://www.google.com/url?sa=i&url=https%3A%2F%2F');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
@@ -89,6 +108,24 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `name`, `quantity`, `price`) VALUES
 (11, 'vist', 50, 100);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `static_content`
+--
+
+CREATE TABLE `static_content` (
+  `title` varchar(100) NOT NULL,
+  `description` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `static_content`
+--
+
+INSERT INTO `static_content` (`title`, `description`) VALUES
+('Cycling', 'cycling is great');
 
 -- --------------------------------------------------------
 
@@ -145,10 +182,22 @@ ALTER TABLE `event`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `leaders`
+--
+ALTER TABLE `leaders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `static_content`
+--
+ALTER TABLE `static_content`
+  ADD PRIMARY KEY (`title`);
 
 --
 -- Indexes for table `user`
@@ -171,6 +220,12 @@ ALTER TABLE `activity`
 --
 ALTER TABLE `event`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `leaders`
+--
+ALTER TABLE `leaders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `product`
