@@ -3,6 +3,10 @@ require_once('models/user.php');
 require_once('helpers/validate.php');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
+header("Content-Type: application/json");
+
+$returnedValue = [];
+$returnedValue["success"] = false;
 
 if(isset($_POST['submit']))
 {
@@ -12,8 +16,9 @@ if(isset($_POST['submit']))
     );
 
     if(!argsExist($args)){
-        echo "Email and password required";
-        exit();
+        $returnedValue["message"] = "Email and password required";
+        echo json_encode($returnedValue);
+        die();
     }
 
     $email = trim($_POST['email']);
@@ -21,8 +26,9 @@ if(isset($_POST['submit']))
 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL))
     {
-        echo "invalid email";
-        exit();
+        $returnedValue["message"] = "Invalid Email";
+        echo json_encode($returnedValue);
+        die();
     }
 
     $user = new User();
@@ -30,7 +36,8 @@ if(isset($_POST['submit']))
 
     if(count($getRow) == 0)
     {
-        echo "User not found";
+        $returnedValue["message"] = "User Not Found";
+        echo json_encode($returnedValue);
         exit();
     }
 
@@ -38,12 +45,15 @@ if(isset($_POST['submit']))
 
     if($password == $getRow['password'])
     {
-        echo "login successful";
-        exit();
+        $returnedValue["success"] = true;
+        $returnedValue["token"] = $getRow['id'];
+        echo json_encode($returnedValue);
     }else{
-        echo "incorrect password";
+        $returnedValue["message"] = "Incorrect Password";
+        echo json_encode($returnedValue);
     }
 }else{
-    echo "not sent in post body";
+    $returnedValue["message"] = "No Data sent in Body";
+    echo json_encode($returnedValue);
 }    
 ?>
