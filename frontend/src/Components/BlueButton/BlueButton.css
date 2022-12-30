@@ -1,0 +1,11 @@
+.BlueButton-Container {
+    background-color: #0f3a4e;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 12px;
+    padding: 8px 16px;
+    /* height: 35px; */
+    text-align: center;
+    border-width: 0px;
+}

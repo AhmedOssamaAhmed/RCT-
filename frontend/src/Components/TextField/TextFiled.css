@@ -1,0 +1,15 @@
+.textfield {
+    margin-bottom: 1rem;
+}
+
+.textfield-label {
+    color: #0f3a4e;
+}
+
+.textfield-input {
+    width: 97%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-top: 2px;
+}

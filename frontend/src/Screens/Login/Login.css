@@ -1,0 +1,60 @@
+.error{
+    color:red;
+}
+
+.login-center-cont{
+    text-align: center;
+}
+
+.Logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.RegisterLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-title {
+    text-align: center;
+    color: #0f3a4e;
+    padding: 2px;
+}
+
+.login-container {
+    width: 70%;
+    margin: 10px auto;
+}
+
+.FormTitle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.rctLogo {
+    height: 50px;
+    width: 50px;
+}
+
+@media (min-width: 992px) {
+    .backGround {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-container {
+        width: auto;
+    }
+}
+
+.BlueButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* 0f3a4e */

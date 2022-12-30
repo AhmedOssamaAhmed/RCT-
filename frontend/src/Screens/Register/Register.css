@@ -1,0 +1,70 @@
+.error{
+    color:red;
+}
+
+.register-cont{
+    text-align: center;
+}
+
+
+.Logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rctLogo {
+    height: 50px;
+    width: 50px;
+}
+
+.register-title {
+    text-align: center;
+    color: #0f3a4e;
+    padding: 2px;
+}
+
+.register-container {
+    width: 70%;
+    margin: 10px auto;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.FormTitle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 992px) {
+    .backGround {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .register-container {
+        width: auto;
+    }
+
+
+    .TwoColumns {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+
+.BlueButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+}
+.LoginLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
