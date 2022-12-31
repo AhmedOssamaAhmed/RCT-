@@ -3,7 +3,7 @@
 function connect(){
   $servername = "localhost";
   $username = "root";
-  $password = "";
+  $password = "rct";
   $dbname ="rct";
 
   try {
