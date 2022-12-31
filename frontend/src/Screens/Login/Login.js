@@ -38,7 +38,7 @@ function Login() {
         <div className="backGround">
             <div className="Login-Landing">
                 <div className="Logo">
-                    <img src={logo} alt="Tester" className="ctLogo" />
+                    <img src={logo} alt="Tester"  className="rctLogo"  />
                 </div>
                 <div className="login-center-cont">
                     <h2 className="login-title">Login</h2>
