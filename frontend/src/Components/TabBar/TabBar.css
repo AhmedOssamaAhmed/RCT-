@@ -1,0 +1,20 @@
+.TabBar{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    background-color: red;
+    padding: 0px;
+    margin: 0px;
+}
+.TabBarLogo{
+    margin-right: 10px;
+}
+
+.rctLogo{
+    height: 25px;
+    width: 25px;
+}
+
+.TempText{
+    color: chartreuse;
+}

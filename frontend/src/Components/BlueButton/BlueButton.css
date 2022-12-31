@@ -9,3 +9,16 @@
     text-align: center;
     border-width: 0px;
 }
+
+.TransparentButton-Container{
+    background-color: transparent;
+    color: #0f3a4e;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 12px;
+    padding: 8px 16px;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #0f3a4e;
+}

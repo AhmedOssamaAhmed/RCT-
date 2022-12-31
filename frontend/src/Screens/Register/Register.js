@@ -17,7 +17,7 @@ function Register() {
     const [lastName,setLastName] = React.useState("");
     const [phone,setPhone] = React.useState("");
     const [dob, setDOB] = React.useState();
-    const [gender, setGender] = React.useState();
+    // const [gender, setGender] = React.useState();
     const [error, setError] = React.useState("");
     function sendData(){
         var data = new FormData();
@@ -31,8 +31,8 @@ function Register() {
         data.append('register', true)
         data.append('gender', 'female')
         data.append("date_of_birth", dob);
-        axios.post(`http://localhost/rct/register.php`, data).then((response) =>{
-            if(response.data != "login successful"){
+        axios.post(`http://172.20.10.7/code/rct/register.php`, data).then((response) =>{
+            if(response.data !== "login successful"){
                 setError(response.data);
             }
             else{

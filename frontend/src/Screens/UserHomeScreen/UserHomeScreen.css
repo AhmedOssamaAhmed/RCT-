@@ -1,0 +1,40 @@
+.rctImage{
+    height: 100vh;
+}
+
+.First-Section{
+    height: 100vh;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.Text-Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    
+}
+
+.Text{
+    font-weight: bold;
+    font-size: 5rem;
+    color: #0f3a4e;
+}
+
+.Buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Hero{
+    padding: 0;
+    margin: 0;
+}
+
+.Second-Section{
+    display: flex;
+    margin: 60px;
+    justify-content: space-between;   
+}
