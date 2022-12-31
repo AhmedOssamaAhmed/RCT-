@@ -47,6 +47,7 @@ if(isset($_POST['submit']))
     {
         $returnedValue["success"] = true;
         $returnedValue["token"] = $getRow['id'];
+        $returnedValue["admin"] = $getRow['role'];
         echo json_encode($returnedValue);
     }else{
         $returnedValue["message"] = "Incorrect Password";

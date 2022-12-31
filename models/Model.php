@@ -20,7 +20,7 @@ class Model{
 	}
 
 	public function getBy($col, $val){
-		$sql = "SELECT * FROM ".$this->name." WHERE ".$col."=?;";
+		$sql = "SELECT * FROM ".$this->name." WHERE ".$col."= ?;";
 		$stmt = $this->pdo->prepare($sql);
 		$arr = [];
 		array_push($arr, $val);
