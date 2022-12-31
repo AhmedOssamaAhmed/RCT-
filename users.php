@@ -1,5 +1,14 @@
 <?php
 require_once("models/user.php");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Content-Type: application/json");
+
+// ignore preflight requests
+if($_SERVER["REQUEST_METHOD"] != "POST"){
+    die();
+}
+
 $returnedVal = [];
 $headers = apache_request_headers();
 // check if current user is logged in
