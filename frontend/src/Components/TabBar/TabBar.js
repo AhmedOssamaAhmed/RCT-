@@ -1,16 +1,25 @@
 import React from "react";
 import "./TabBar.css"
 import logo from '../../Assets/rct-logo.png'
+import { Link } from "react-router-dom";
 
-function TabBar(){
+function TabBar(props){
 
     return (
         <div className="TabBar">
-            <div className="TabBarLogo">
-                <img src={logo} alt="Tester" className="rctLogo" />
+            <div className="TabBarRight">
+                <span className="TabBarLogo">
+                    <img src={logo} alt="Tester" className="rctLogo" />
+                </span>
+                <span className="TabBarTitle">Rehab Cycling Team</span>
             </div>
-            <span className="TabBarTitle">Rehab Cycling Team</span>
-            {/* <p style={{color: "blue"}} className="TempText">Text</p> */}
+            <div className="bar-links">{props.links ? props.links.map((link, i) => {
+                return( 
+                <Link className="bar-link" to={link[1]}>
+                    {link[0]}
+                </Link>
+                );
+            }) : <></>}</div>
         </div>
     )
 }
