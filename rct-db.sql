@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `activity`
 --
 
-CREATE TABLE `activity` (
+CREATE TABLE IF NOT EXISTS `activity` (
   `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `link` varchar(60) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `activity` (
 -- Table structure for table `announcements`
 --
 
-CREATE TABLE `announcements` (
+CREATE TABLE IF NOT EXISTS `announcements` (
   `title` varchar(50) NOT NULL,
   `description` longtext NOT NULL,
   `date` datetime NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE `announcements` (
 -- Table structure for table `event`
 --
 
-CREATE TABLE `event` (
+CREATE TABLE IF NOT EXISTS `event` (
   `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `image` int(11) NOT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE `event` (
 -- Table structure for table `leaders`
 --
 
-CREATE TABLE `leaders` (
+CREATE TABLE IF NOT EXISTS `leaders` (
   `id` int(11) NOT NULL,
   `leader_name` varchar(20) NOT NULL,
   `photo` varchar(50) NOT NULL
@@ -86,7 +86,7 @@ CREATE TABLE `leaders` (
 -- Dumping data for table `leaders`
 --
 
-INSERT INTO `leaders` (`id`, `leader_name`, `photo`) VALUES
+REPLACE INTO `leaders` (`id`, `leader_name`, `photo`) VALUES
 (1, 'mohamed el zoghaby', 'https://www.google.com/url?sa=i&url=https%3A%2F%2F');
 
 -- --------------------------------------------------------
@@ -95,7 +95,7 @@ INSERT INTO `leaders` (`id`, `leader_name`, `photo`) VALUES
 -- Table structure for table `product`
 --
 
-CREATE TABLE `product` (
+CREATE TABLE IF NOT EXISTS `product` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `quantity` int(11) NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `quantity`, `price`) VALUES
+REPLACE INTO `product` (`id`, `name`, `quantity`, `price`) VALUES
 (11, 'vist', 50, 100);
 
 -- --------------------------------------------------------
@@ -115,7 +115,7 @@ INSERT INTO `product` (`id`, `name`, `quantity`, `price`) VALUES
 -- Table structure for table `static_content`
 --
 
-CREATE TABLE `static_content` (
+CREATE TABLE IF NOT EXISTS `static_content` (
   `title` varchar(100) NOT NULL,
   `description` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -124,7 +124,7 @@ CREATE TABLE `static_content` (
 -- Dumping data for table `static_content`
 --
 
-INSERT INTO `static_content` (`title`, `description`) VALUES
+REPLACE INTO `static_content` (`title`, `description`) VALUES
 ('Cycling', 'cycling is great');
 
 -- --------------------------------------------------------
@@ -133,7 +133,7 @@ INSERT INTO `static_content` (`title`, `description`) VALUES
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL,
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
@@ -150,7 +150,7 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `password`, `role`, `email`, `strava_link`, `date_of_birth`, `phone`, `gender`) VALUES
+REPLACE INTO `user` (`id`, `first_name`, `last_name`, `password`, `role`, `email`, `strava_link`, `date_of_birth`, `phone`, `gender`) VALUES
 (4, 'Ahmed', 'Ossama', 'admin', 0, 'ahmedossama2001@yahoo.com', 'link', '2001-09-20', '01147730338', 1),
 (5, 'Alaa', 'mohamed', 'admin', 0, 'alaamohamed2001@yahoo.com', 'link', '2001-09-20', '01001234567', 0),
 (6, 'abdo', 'elhawary', 'admin', 0, 'hawhaw@gmail.com', 'test', '2022-11-03', '01012737779', 0),

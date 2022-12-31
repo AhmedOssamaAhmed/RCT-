@@ -30,8 +30,8 @@ if(isset($_POST['register']))
     $phone =trim($_POST['phone']);
     $gender =trim($_POST['gender']);
     if($gender == "male"){
-        $gender = true;
-    }else{$gender=false;}
+        $gender = 1;
+    }else{$gender=0;}
     $date_of_birth =trim($_POST['date_of_birth']);
     
     if($password != $verify_password){
@@ -58,6 +58,7 @@ if(isset($_POST['register']))
                 'strava_link'=>$strava_link,
                 'date_of_birth'=>$date_of_birth,
                 'gender'=>$gender,
+                'role'=>0
             ];
     $user->insert($params);
     echo "new User created";
