@@ -30,7 +30,11 @@ function HomeScreen() {
 }, [])
     return (
         <div>
-            <TabBar />
+            <TabBar links={[
+                ["Events", "events"],
+                ["Announcements", "/announcements"],
+                ["Products", "/products"],
+            ]} />
             {adminFlag ? <AdminHomeScreen /> : <UserHomeScreen />}
         </div>
     )

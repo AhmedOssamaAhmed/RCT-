@@ -46,7 +46,7 @@ function Login() {
                 </div>
                 <div className="login-container">
                     <WhiteContainer>
-                        <TextField label="Email" onChange={(data) => setEmail(data)}/>
+                        <TextField label="Email" onChange={(data) => setEmail(data)} />
                         <TextField label="Password" onChange={(data) => setPassword(data)}/>
                         <div to="/HomeScreen" className="BlueButton" onClick={() => sendData()}>
                             <BlueButton text="Login"/>

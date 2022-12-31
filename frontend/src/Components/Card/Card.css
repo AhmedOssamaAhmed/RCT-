@@ -1,23 +1,61 @@
-.Container{
+.MainContainer{
     display: block;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 12px;
+    border-color: #0f3a4e;
+    padding: 15px;
+    width: 33%;
+}
+.SideContainer{
+    display: block;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 12px;
+    border-color: #0f3a4e;
+    padding: 10px;
+    height: 450px;
+    width: 33%;
 }
 
 .profileImage{
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
+}
+.Main-Image {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+.Side-Image{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
 }
 
 .ProfileContainer{
     display: flex;
+    /* text-align: center; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+
 }
 
 .profileName{
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 5rem;
     color: #0f3a4e;
+    width: 150px;
+}
+.SideName{
+    font-weight: bold;
+    font-size: 3.5rem;
+    color: #0f3a4e;
+    width: 150px;
 }
 
 .Profile-Name{

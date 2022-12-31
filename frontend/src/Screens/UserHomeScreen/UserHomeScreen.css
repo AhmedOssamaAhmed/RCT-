@@ -1,12 +1,18 @@
 .rctImage{
     height: 100vh;
+    opacity: 40%;
+    margin-left: 50px;
 }
 
 .First-Section{
     height: 100vh;
+    background-color: #676767;
     display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
+    justify-content: center;
+    align-content: center;
+    /* padding-left: 25px; */
+    /* justify-content: center; */
+    /* paddings-top: 25px; */
 }
 
 .Text-Container{
@@ -35,6 +41,60 @@
 
 .Second-Section{
     display: flex;
-    margin: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     justify-content: space-between;   
+    background-color: white;
+    align-items: center;
+}
+.Unfilled-Button{
+    height: 90px;
+    width: 220px;
+    /* background-color: #8fff8ba2; */
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #0f3a4e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.Filled-Button{
+    height: 90px;
+    width: 220px;
+    /* background-color: #8fff8ba2; */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.Third-Section{
+    height: 75vh;
+    width: 100%;
+    background-color: #e5e5e5;
+    justify-content: center;
+    display: flex;
+}
+.Fourth-Section{
+    height: 75vh;
+    width: 100%;
+    background-color: white;
+    justify-content: center;
+    display: flex;
+}
+.Fifth-Section{
+    height: 75vh;
+    width: 100%;
+    background-color: #e5e5e5;
+    justify-content: center;
+    display: flex;
+}
+.Sixth-Section{
+    height: 75vh;
+    width: 100%;
+    background-color: white;
+    justify-content: center;
+    display: flex;
 }
