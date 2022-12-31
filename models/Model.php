@@ -48,13 +48,12 @@ class Model{
 		$stmt->execute($newRow);
 	}
 
-	public function delete($reference,$record){
-		$sql = "DELETE FROM ".$this->name." WHERE ".$reference." = ".$record ;
-		// if (mysqli_query($conn, $sql)) {
-			// echo "Record deleted successfully";
-		//   } else {
-			// echo "Error deleting record: " . mysqli_error($conn);
-		//   } 
+	public function delete($col,$val){
+		$sql = "DELETE FROM ".$this->name." WHERE ".$col." = ?";
+		$stmt = $this->pdo->prepare($sql);
+		$arr = [];
+		array_push($arr, $val);
+		$stmt->execute($arr);
 	}
 }
 ?>
