@@ -43,7 +43,7 @@ if(isset($_POST['submit']))
 
     $getRow = $getRow[0];
 
-    if($password == $getRow['password'])
+    if(password_verify($password, $getRow['password']))
     {
         $returnedValue["success"] = true;
         $returnedValue["token"] = $getRow['id'];

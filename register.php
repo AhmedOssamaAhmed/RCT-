@@ -50,6 +50,8 @@ if(isset($_POST['register']))
         echo "email already registered !";
         exit();
     }
+    // hash the password before saving it to db
+    $password = password_hash($password, PASSWORD_BCRYPT);
     $params = ['email'=>$email,
                 'first_name'=>$first_name,
                 'last_name'=>$last_name,
