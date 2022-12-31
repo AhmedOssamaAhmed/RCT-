@@ -47,5 +47,14 @@ class Model{
 		$stmt = $this->pdo->prepare($query);
 		$stmt->execute($newRow);
 	}
+
+	public function delete($reference,$record){
+		$sql = "DELETE FROM ".$this->name." WHERE ".$reference." = ".$record ;
+		// if (mysqli_query($conn, $sql)) {
+			// echo "Record deleted successfully";
+		//   } else {
+			// echo "Error deleting record: " . mysqli_error($conn);
+		//   } 
+	}
 }
 ?>
