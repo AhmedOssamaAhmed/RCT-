@@ -1,11 +1,11 @@
 import React from "react";
 import TabBar from "../../Components/TabBar/TabBar.js";
 import "./UserProductsScreen.css";
-import { useNavigate } from "react-router-dom";
-import logo from '../../Assets/rct-logo.png'
 import ViewingBlock from "../../Components/ViewingBlock/ViewingBlock.js";
 import WhiteContainer from "../../Components/WhiteContainer/WhiteContainer.js";
 import {get} from "../../Hooks/Network.js";
+import logo from '../../Assets/rct-logo.png'
+import { useNavigate } from "react-router-dom";
 
 function UserProductsScreen(){
     const navigate = useNavigate();

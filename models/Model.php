@@ -48,6 +48,7 @@ class Model{
 		$stmt->execute($newRow);
 	}
 
+	// deletes current function
 	public function delete($col,$val){
 		$sql = "DELETE FROM ".$this->name." WHERE ".$col." = ?";
 		$stmt = $this->pdo->prepare($sql);
