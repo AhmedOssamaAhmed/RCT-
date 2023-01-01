@@ -3,6 +3,7 @@ import Riders from '../../Assets/rct-HomeScreen.png'
 import "./UserHomeScreen.css";
 import WhiteContainer from "../../Components/WhiteContainer/WhiteContainer";
 import BlueButton from "../../Components/BlueButton/BlueButton";
+import TabBar from "../../Components/TabBar/TabBar";
 import Card from "../../Components/Card/Card";
 import { useNavigate } from "react-router-dom";
 import StaticContent from "../../Components/StaticContent/StaticContent";
@@ -15,6 +16,12 @@ function UserHomeScreen(){
     const navigate = useNavigate();
 
     return(
+        <>
+        <TabBar links={[
+            ["Events", "/events"],
+            ["Announcements", "/announcements"],
+            ["Products", "/products"],
+        ]} />
         <div className="background">
             <div className="First-Section">
                 {/* TODO : Add another picture */}
@@ -89,6 +96,7 @@ function UserHomeScreen(){
             </div>
             
         </div>
+        </>
     )
 }
 
