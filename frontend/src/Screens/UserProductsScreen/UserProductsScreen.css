@@ -53,8 +53,9 @@
 	transition: 0.3s;
 }
 .Link:hover{
-	background-color: aquamarine;
-	opacity: 0.7;
+	background-color: white;
+	opacity: 0.9;
+	color: #22556c;
 }
 .ItemPhoto{
 	width: 150px;
