@@ -3,14 +3,19 @@ import React from "react";
 import TabBar from "../../Components/TabBar/TabBar";
 import AdminEventsScreen from "../AdminEventsScreen/AdminEventsScreen";
 import UserHomeScreen from "../UserHomeScreen/UserHomeScreen";
+import {get, post} from "../../Hooks/Network.js";
+import { useNavigate } from "react-router-dom";
 
 function HomeScreen() {
+    const navigate=useNavigate()
     const [adminFlag, setAdminFlag] = React.useState(false);
     React.useEffect(() => {
     let token = localStorage.getItem("token");
-    axios.post(`http://localhost/code/rct/users.php`,null,{headers: {"Authorization" : token}} ).then((response) =>{
+    get("is_admin.php", {"Authorization": token}, (response) => {
+        // if not an admin go to login screen
+        setAdminFlag(response.data.isAdmin)
     });
-}, [])
+},[]);
     return (
         <div>
             {adminFlag ? <AdminEventsScreen /> : <UserHomeScreen />}

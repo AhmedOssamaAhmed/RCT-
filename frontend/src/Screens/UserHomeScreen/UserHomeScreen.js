@@ -7,14 +7,27 @@ import TabBar from "../../Components/TabBar/TabBar";
 import Card from "../../Components/Card/Card";
 import { useNavigate } from "react-router-dom";
 import StaticContent from "../../Components/StaticContent/StaticContent";
-// import OwlCarousel from 'react-owl-carousel';
-// import 'owl.carousel/dist/assets/owl.carousel.css';
-// import 'owl.carousel/dist/assets/owl.theme.default.css';
+import {get} from "../../Hooks/Network.js";
+
 
 function UserHomeScreen(){
 
     const navigate = useNavigate();
-
+    const [Title,setTitle] = React.useState("")
+    const [Description,setDescription] = React.useState("")
+    
+	React.useEffect(
+        () => {
+            // get token
+            let token = localStorage.getItem("token");
+        
+            // check to see if token belongs to an adminstrator
+            get("get_static_text.php", {}, (response) => {
+                setTitle(response.data.content[0].title)
+                setDescription(response.data.content[0].description)
+            });
+        },[]);
+    
     return(
         <>
         <TabBar links={[
@@ -59,40 +72,16 @@ function UserHomeScreen(){
             </div>
             
             <div className="Third-Section">
-                <StaticContent Title="Who Are we?" Content="Lorum Lorem ipsum dolor sit amet,
-                 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                 et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                    mollit anim id est laborum.Ipsum"/>
+                <StaticContent Title={Title} Content={Description}/>
             </div>
             <div className="Fourth-Section">
-                <StaticContent Title="Cycling" Content="Lorum Lorem ipsum dolor sit amet,
-                 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                 et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                    mollit anim id est laborum.Ipsum"/>
+            <StaticContent Title={Title} Content={Description}/>
             </div>
             <div className="Fifth-Section">
-                <StaticContent Title="Running" Content="Lorum Lorem ipsum dolor sit amet,
-                 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                 et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                    mollit anim id est laborum.Ipsum"/>
+            <StaticContent Title={Title} Content={Description}/>
             </div>
             <div className="Sixth-Section">
-                <StaticContent Title="Entertainment" Content="Lorum Lorem ipsum dolor sit amet,
-                 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                 et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                    mollit anim id est laborum.Ipsum"/>
+            <StaticContent Title={Title} Content={Description}/>
             </div>
             
         </div>
