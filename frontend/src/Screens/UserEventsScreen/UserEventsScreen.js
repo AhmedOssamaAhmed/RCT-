@@ -12,11 +12,18 @@ function UserEventsScreen(){
         	    ["Announcements", "/announcements"],
         	    ["Products", "/products"],
         	]} />
-            <div className="products">
+            <div className="Events">
                 <WhiteContainer>
 					<h1>Our Events</h1>
                 </WhiteContainer>
-            </div> 
+            </div>
+            {/* {shownEvents.map((events) => {
+                return (
+                    <div>
+                        Test
+                    </div>
+                )
+            })}  */}
         </>
     );
 }
