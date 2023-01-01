@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: *");
 header("Content-Type: application/json");
 
 // ignore preflight requests
-if($_SERVER["REQUEST_METHOD"] != "POST"){
+if($_SERVER["REQUEST_METHOD"] != "GET"){
     die();
 }
 
@@ -30,5 +30,5 @@ if(count($user) == 0 || $user[0]["role"] == 0){
     die();
 } 
 // otherwise get all users and return
-$returnedVal["users"] = $users->getAll();
+$returnedVal["products"] = $users->getAll();
 echo json_encode($returnedVal);

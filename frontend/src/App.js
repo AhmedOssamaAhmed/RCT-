@@ -7,8 +7,10 @@ import HomeScreen from './Screens/HomeScreen/HomeScreen';
 import UserProductsScreen from './Screens/UserProductsScreen/UserProductsScreen';
 import UserEventsScreen from './Screens/UserEventsScreen/UserEventsScreen';
 import UserAnnouncementsScreen from './Screens/UserAnnouncementsScreen/UserAnnouncementsScreen';
-import AdminHomeScreen from './Screens/AdminHomeScreen/AdminHomeScreen';
 import AdminProductsScreen from './Screens/AdminProductsScreen/AdminProductsScreen';
+import AdminEventsScreen from './Screens/AdminEventsScreen/AdminEventsScreen';
+import AdminAnnouncementsScreen from './Screens/AdminAnnouncementsScreen/AdminAnnouncementsScreen';
+import AdminUsersScreen from './Screens/AdminUsersScreen/AdminUsersScreen';
 
 function App() {
   return (
@@ -21,8 +23,10 @@ function App() {
           <Route path="/products" element={<UserProductsScreen />} />
           <Route path="/events" element={<UserEventsScreen />} />
           <Route path="/announcements" element={<UserAnnouncementsScreen />} />
-          <Route path="/admin" element={<AdminHomeScreen />} />
           <Route path="/admin/products" element={<AdminProductsScreen />} />
+          <Route path="/admin/events" element={<AdminEventsScreen />} />
+          <Route path="/admin/announcements" element={<AdminAnnouncementsScreen />} />
+          <Route path="/admin/users" element={<AdminUsersScreen />} />
         </Routes>
       </Router>
     </div>

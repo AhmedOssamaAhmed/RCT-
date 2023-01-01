@@ -11,7 +11,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $args = array(
         "name",
-        "image",
         "start_point",
         "destination",
         "date",
@@ -24,14 +23,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         die();
     }
     $name = trim($_POST['name']);
-    $image =trim($_POST['image']); 
     $start_point =trim($_POST['start_point']);
     $destination =trim($_POST['destination']);
     $date =trim($_POST['date']);
     $distance =trim($_POST['distance']);
     
     $params = ['name'=> $name,
-                'image'=>$image,
                 'start_point'=>$start_point,
                 'destination'=>$destination,
                 'date' => $date,

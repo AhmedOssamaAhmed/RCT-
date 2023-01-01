@@ -1,9 +1,8 @@
 import axios from "axios";
 import React from "react";
 import TabBar from "../../Components/TabBar/TabBar";
-import AdminHomeScreen from "../AdminHomeScreen/AdminHomeScreen";
+import AdminEventsScreen from "../AdminEventsScreen/AdminEventsScreen";
 import UserHomeScreen from "../UserHomeScreen/UserHomeScreen";
-// import { Link } from "react-router-dom";
 
 function HomeScreen() {
     const [adminFlag, setAdminFlag] = React.useState(false);
@@ -14,7 +13,7 @@ function HomeScreen() {
 }, [])
     return (
         <div>
-            {adminFlag ? <AdminHomeScreen /> : <UserHomeScreen />}
+            {adminFlag ? <AdminEventsScreen /> : <UserHomeScreen />}
         </div>
     )
 }

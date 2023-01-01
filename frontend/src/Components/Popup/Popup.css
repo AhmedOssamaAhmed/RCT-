@@ -1,0 +1,41 @@
+.popup {
+  background-color: rgba(52, 64, 84, 0.68);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px 32px;
+}
+
+.popup-close-btn {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #667085;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.shown {
+  display: block;
+  visibility: visible;
+}
+
+.popup-form-buttons {
+  text-align: right;
+}

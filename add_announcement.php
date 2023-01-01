@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         "title",
         "description",
         "date",
-        "image",
+        "user_id"
     );
 
     if(!argsExist($args)){
@@ -22,15 +22,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         die();
     }
     $title = trim($_POST['title']);
-    $image =trim($_POST['image']); 
     $description =trim($_POST['description']);
     $date =trim($_POST['date']);
     
     $params = ['title'=> $title,
                 'description'=>$description,
                 'date' => $date,
-                'image'=>$image,
-                'user_id'=> 4
+                'user_id'=> $_POST["user_id"]
             ];
 
     $announ = new Announcement();
