@@ -1,11 +1,11 @@
 import React from "react";
-import axios from "axios";
 import "./Login.css";
 import WhiteContainer from "../../Components/WhiteContainer/WhiteContainer";
 import logo from '../../Assets/rct-logo.png'
 import TextField from "../../Components/TextField/TextField";
 import BlueButton from "../../Components/BlueButton/BlueButton"
 import { Link } from "react-router-dom";
+import { post } from "../../Hooks/Network.js";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -18,9 +18,9 @@ function Login() {
         data.append('email', email);
         data.append('password', password);
         data.append('submit', true)
-        axios.post(`http://172.20.10.7/code/rct/login.php`, data).then((response) =>{
+        post(`login.php`, data, null, (response) =>{
         if(!response.data.success){
-            setError(response.data);
+            setError(response.data.message);
             console.log("response Not Login Successful");
             console.log(response.data.success)
             console.log("response Not Login Successful");

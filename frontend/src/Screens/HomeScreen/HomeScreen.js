@@ -6,27 +6,11 @@ import UserHomeScreen from "../UserHomeScreen/UserHomeScreen";
 // import { Link } from "react-router-dom";
 
 function HomeScreen() {
-    const [token, setToken] = React.useState(null);
     const [adminFlag, setAdminFlag] = React.useState(false);
     React.useEffect(() => {
-    setToken(localStorage.getItem("token"))    
-    console.log("Tester")
-    axios.post(`http://172.20.10.7/code/rct/users.php`,null,{headers: {"Authorization" : token}} ).then((response) =>{
-        if(response.data){
-            // setError(response.data);
-            console.log("response Not Login Successful");
-            console.log(response.data)
-            console.log("response Not Login Successful");
-        }
-        else{
-            console.log(response.data);
-            console.log("response Logged in");
-            // setError("");
-        }
-        console.log(response);
-        console.log("response");
+    let token = localStorage.getItem("token");
+    axios.post(`http://localhost/code/rct/users.php`,null,{headers: {"Authorization" : token}} ).then((response) =>{
     });
-    console.log("Tester2")
 }, [])
     return (
         <div>

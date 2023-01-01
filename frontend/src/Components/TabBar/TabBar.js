@@ -4,7 +4,6 @@ import logo from '../../Assets/rct-logo.png'
 import { Link } from "react-router-dom";
 
 function TabBar(props){
-
     return (
         <div className="TabBar">
             <Link to="/home" style={{textDecoration:"none"}}>
