@@ -30,7 +30,7 @@ function Login() {
             console.log("response Logged in");
             setError("");
             localStorage.setItem("token",response.data.token)
-            navigate("/HomeScreen");
+            navigate("/home");
         }
     });
     }

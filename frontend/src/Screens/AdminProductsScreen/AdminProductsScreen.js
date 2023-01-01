@@ -3,8 +3,25 @@ import TabBar from "../../Components/TabBar/TabBar.js";
 import WhiteContainer from "../../Components/WhiteContainer/WhiteContainer.js";
 import BlueButton from "../../Components/BlueButton/BlueButton.js";
 import "./AdminProductsScreen.css";
+import { useNavigate } from "react-router-dom";
+import {get} from "../../Hooks/Network.js";
 
 function AdminProductsScreen(){
+	const navigate = useNavigate();
+
+	React.useEffect(
+	() => {
+		// get token
+		let token = localStorage.getItem("token");
+	
+		// check to see if token belongs to an adminstrator
+		get("is_admin.php", {"Authorization": token}, (response) => {
+			// if not an admin go to login screen
+			if(response.data.isAdmin == false){
+				navigate("/");
+			}
+		});
+	},[]);
 
     return(
         <>
