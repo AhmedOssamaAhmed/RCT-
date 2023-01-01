@@ -8,12 +8,19 @@ function BlueButton(props) {
     if(props.className == "transparent"){
         class_name = "TransparentButton-Container";
     }
+
+    function onClick(){
+        if(props.onClick != null){
+            props.onClick();
+        }
+    }
+
     return (
-        <div className = "Container">
-            <p className = {class_name} style={{fontSize:props.fontSize, borderStyle:props.border}}>
+        <button onClick={onClick} className = "Container">
+            <p className = {class_name} style={{fontSize:props.fontSize, borderStyle:props.border, backgroundColor: props.bgColor}}>
                 {props.text}
             </p>
-        </div>
+        </button>
     )
 }
 export default BlueButton;

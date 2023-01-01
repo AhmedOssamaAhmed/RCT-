@@ -8,6 +8,8 @@ import {get} from "../../Hooks/Network.js";
 
 function AdminProductsScreen(){
 	const navigate = useNavigate();
+	const [products, setProducts] = React.useState([]);
+	const [shownProducts, setShownProducts] = React.useState([]);
 
 	React.useEffect(
 	() => {
@@ -21,7 +23,24 @@ function AdminProductsScreen(){
 				navigate("/");
 			}
 		});
+
+		// since user is an admin get products
+		get("products.php", {"Authorization": token}, (response) =>{
+			setShownProducts(response.data.products);
+			setProducts(response.data.products);
+		});
 	},[]);
+
+	function search(subStr){
+		let newProdList = [];
+		for(let i=0; i < products.length; i++){
+			let currStr = String(products[i]["name"]);
+			if(currStr.toLowerCase().includes(subStr)){
+				newProdList.push(products[i]);
+			}
+		}
+		setShownProducts(newProdList);
+	}
 
     return(
         <>
@@ -36,15 +55,25 @@ function AdminProductsScreen(){
                     <div className="admin-content-top">
                         <h1>Products</h1>
                         <div className="admin-actions">
-                            <input className="search" type="text"/>
+                            <input className="search" type="text" onChange={(event) => {search(event.target.value);}}/>
                             <BlueButton text="+ Add" />
                         </div>
                     </div>
-                    <div className="data-row">
-                        <span className="data-row-element">Ahmed Ossama</span>
-                        <span className="data-row-element">ahmedossamaahmed@gmail.com</span>
-                        <span className="data-row-element">User</span>
-                    </div>
+					{shownProducts.map((product, i) => {
+						return (
+                    		<div className="data-row">
+								<div>
+                    		    	<span className="data-row-element">{product["name"]}</span>
+                    		    	<span className="data-row-element">{product["price"]}</span>
+                    		    	<span className="data-row-element">{product["quantity"]}</span>
+									</div>
+								<div className="data-row-actions">
+									<BlueButton text="Edit"/>
+									<BlueButton bgColor="red" text="Delete" onClick={function(){console.log("delete");}}/>
+								</div>
+                    		</div>
+						);
+					})}
                 </WhiteContainer>
             </div> 
         </>

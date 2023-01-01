@@ -22,10 +22,21 @@
 
 .data-row{
 	background-color:#e5e5e5;
-	padding:1rem;
 	border-radius:10px;
+	margin:1rem 0;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
 }
 
 .data-row-element{
 	padding:0 1rem;
+}
+
+.data-row-actions{
+	display:flex;
+}
+
+.data-row-actions > *{ 
+	margin:0 0.5rem;
 }
