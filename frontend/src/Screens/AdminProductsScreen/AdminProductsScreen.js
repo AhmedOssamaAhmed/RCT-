@@ -4,12 +4,14 @@ import WhiteContainer from "../../Components/WhiteContainer/WhiteContainer.js";
 import BlueButton from "../../Components/BlueButton/BlueButton.js";
 import "./AdminProductsScreen.css";
 import { useNavigate } from "react-router-dom";
-import {get} from "../../Hooks/Network.js";
+import {get, post} from "../../Hooks/Network.js";
 
 function AdminProductsScreen(){
 	const navigate = useNavigate();
 	const [products, setProducts] = React.useState([]);
 	const [shownProducts, setShownProducts] = React.useState([]);
+	const [refresh, setRefresh] = React.useState(false);
+	const inputRef = React.useRef(null);
 
 	React.useEffect(
 	() => {
@@ -23,23 +25,44 @@ function AdminProductsScreen(){
 				navigate("/");
 			}
 		});
+	},[]);
+
+	React.useEffect(() => {
+		// get token
+		let token = localStorage.getItem("token");
 
 		// since user is an admin get products
 		get("products.php", {"Authorization": token}, (response) =>{
-			setShownProducts(response.data.products);
 			setProducts(response.data.products);
+			if(inputRef.current.value == null || inputRef.current.value == ""){
+				setShownProducts(response.data.products);
+			}else{
+				search(inputRef.current.value, response.data.products);
+			}
 		});
-	},[]);
+	},[refresh]);
 
-	function search(subStr){
+	function search(subStr, list=products){
 		let newProdList = [];
-		for(let i=0; i < products.length; i++){
-			let currStr = String(products[i]["name"]);
+		for(let i=0; i < list.length; i++){
+			let currStr = String(list[i]["name"]);
 			if(currStr.toLowerCase().includes(subStr)){
-				newProdList.push(products[i]);
+				newProdList.push(list[i]);
 			}
 		}
 		setShownProducts(newProdList);
+	}
+
+	function deleteProduct(id){
+		// get token
+		let token = localStorage.getItem("token");
+		// send delete request
+        var data = new FormData();
+		data.append("cols", "id");
+		data.append("value", id);
+		post("delete_product.php", data, {"Authorization": token}, ()=>{
+			setRefresh(!refresh);
+		});
 	}
 
     return(
@@ -55,7 +78,7 @@ function AdminProductsScreen(){
                     <div className="admin-content-top">
                         <h1>Products</h1>
                         <div className="admin-actions">
-                            <input className="search" type="text" onChange={(event) => {search(event.target.value);}}/>
+                            <input ref={inputRef} className="search" type="text" onChange={(event) => {search(event.target.value);}}/>
                             <BlueButton text="+ Add" />
                         </div>
                     </div>
@@ -69,7 +92,7 @@ function AdminProductsScreen(){
 									</div>
 								<div className="data-row-actions">
 									<BlueButton text="Edit"/>
-									<BlueButton bgColor="red" text="Delete" onClick={function(){console.log("delete");}}/>
+									<BlueButton bgColor="red" text="Delete" onClick={() => {deleteProduct(product["id"]);}}/>
 								</div>
                     		</div>
 						);
